@@ -3,6 +3,7 @@
 ## Summary
 The included run_analysis.R script processes the "Human Activity Recognition Using Smartphones" dataset, combining its multiple files into a single, tidy dataset. The output of the script is a tidy R data frame.
 
+## Study Design
 See included "UCI HAR Dataset" directory for full details on the contents and methodology of the study, along with the complete raw dataset.
 
 ## Code Book
