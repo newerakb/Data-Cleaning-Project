@@ -89,4 +89,4 @@ melted <- melt(combined.df, c("Subject", "Activity"), vars=meanColumns)
 combined.df.summary <- dcast(melted, Subject+Activity ~ variable, mean)
 
 # Return Tidy Data Set
-combined.df
+combined.df.summary

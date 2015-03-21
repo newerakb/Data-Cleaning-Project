@@ -11,8 +11,8 @@ The original dataset contains separate "Test" and "Training" sets, which I have 
 
 |Field                                                              | Original Field Name           | Data Type
 |------------------------------------------------------------------ | ----------------------------- | ------------------
-|Activity                                                           | N/A                           | Factor (6 levels)
 |Subject                                                            | N/A                           | Integer
+|Activity                                                           | N/A                           | Factor (6 levels)
 |Body Acceleration Time Mean - X Direction                          | tBodyAcc-mean()-X             | Numeric
 |Body Acceleration Time Mean - Y Direction                          | tBodyAcc-mean()-Y             | Numeric
 |Body Acceleration Time Mean - Z Direction                          | tBodyAcc-mean()-Z             | Numeric
@@ -105,3 +105,4 @@ The process for creating the final, tidy dataset is as follows:
   9. Replace any occurrence of "Gyro" with " Gyroscope ".
   10. Replace any occurrence of "Jerk" with " Jerk ".
   11. Replace any occurrence of "Mag" with " Magnitude ".
+13. Create a summarized dataset which contains a single row for each Subject/Activity combination, with additional fields showing the mean of *each* of the various measurement fields in the primary dataset.
