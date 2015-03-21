@@ -1,12 +1,3 @@
-# Need to join train/X_train.txt to test/X_test.txt, using
-# associated y_train.txt and y_test.txt files to get code for
-# each row (lookup code in activity_labels.txt).
-#
-# Lookup column description in features.txt (561 columns),
-# only keeping the mean ("-mean()") and standard deviation
-# ("-std()") columns for each category
-
-
 # Initialize Required Libraries
 library(LaF)
 library(ffbase)
@@ -79,7 +70,7 @@ combined.df <- merge(activity.labels, combined.df, by.x="V1", by.y="Activity")
 combined.df <- subset(combined.df, select = -c (V1)) #removes label code column
 colnames(combined.df)[1] <- "Activity"
 
-# Set New Column Names
+# Set New Descriptive Column Names
 names(combined.df) <- gsub("-mean\\()", " Mean", names(combined.df))
 names(combined.df) <- gsub("-std\\()", " Standard Deviation", names(combined.df))
 names(combined.df) <- gsub("-X", " - X Direction", names(combined.df))
