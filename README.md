@@ -1,6 +1,11 @@
 # Coursera Data Science - Getting and Cleaning Data Course Project
+
+## Summary
 The included run_analysis.R script processes the "Human Activity Recognition Using Smartphones" dataset, combining its multiple files into a single, tidy dataset. The output of the script is a tidy R data frame.
 
+See included "UCI HAR Dataset" directory for full details on the contents and methodology of the study, along with the complete raw dataset.
+
+## Code Book
 The original dataset contains separate "Test" and "Training" sets, which I have combined into a single larger dataset. While the original data contains a large quantity of statistics for each reading, my dataset includes only the Mean and Standard Deviation for each reading. The table below shows the fields included in the final dataset, indicating the name of the field in the original set when present:
 
 |Field                                                              | Original Field Name           | Data Type
@@ -73,3 +78,28 @@ The original dataset contains separate "Test" and "Training" sets, which I have 
 |BodyBody Gyroscope Magnitude Frequency Standard Deviation          | fBodyBodyGyroMag-std()        | Numeric
 |BodyBody Gyroscope Jerk Magnitude Frequency Mean                   | fBodyBodyGyroJerkMag-mean()   | Numeric
 |BodyBody Gyroscope Jerk Magnitude Frequency Standard Deviation     | fBodyBodyGyroJerkMag-std()    | Numeric
+
+The process for creating the final, tidy dataset is as follows:
+1. Load the Features file (features.txt), which contains the field names for the 561 fields in the raw datasets.
+2. Load the Training (X_train.txt) and Test (X_test.txt) files which contain the actual recorded measurements for each feature in the Features file.
+3. Combine the Training and Test data into a single dataset. This will be the primary dataset manipulated by the rest of the steps below.
+4. Remove all fields from the combined dataset except for those containing a Mean or Standard Deviation measurement.
+5. Load the Activity Labels files for Training (y_train.txt) and Test (y_test.txt) datasets, which indicate the Activity represented by each row in the dataset (walking, standing, etc).
+6. Combine the two Activity Labels datasets into a single dataset.
+7. Add the new combined Activity Labels dataset to the primary dataset last modified in Step 4.
+8. Load the Subject files for Training (subject_train.txt) and Test (subject_test.txt) datasets, which indicate the Subject measured by each row in the dataset (30 subjects total).
+9. Combine the two Subject datasets into a single dataset.
+10. Add the new combined Subject dataset to the primary dataset last modified in Step 7.
+11. Replace the numeric representations of each Activity in the primary dataset with descriptive labels stored in activity_labels.txt.
+12. Rename each of the measurement columns with a more descriptive name, using the following replacements:
+  1. Replace any occurrence of "-mean()" with " Mean".
+  2. Replace any occurrence of "-std()" with " Standard Deviation".
+  3. Replace any occurrence of "-X" with " - X Direction".
+  4. Replace any occurrence of "-Y" with " - Y Direction".
+  5. Replace any occurrence of "-Z" with " - Z Direction".
+  6. Any fields beginning with "t" have the prefix removed. The word "Time" is then added at the end of the field name, before any Direction indicators (X,Y,Z).
+  7. Any fields beginning with "f" have the prefix removed. The word "Frequency" is then added at the end of the field name, before any Direction indicators (X,Y,Z).
+  8. Replace any occurrence of "Acc" with " Acceleration ".
+  9. Replace any occurrence of "Gyro" with " Gyroscope ".
+  10. Replace any occurrence of "Jerk" with " Jerk ".
+  11. Replace any occurrence of "Mag" with " Magnitude ".
