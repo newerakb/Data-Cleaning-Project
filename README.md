@@ -1,0 +1,2 @@
+# Coursera Data Science - Getting and Cleaning Data
+The included run_analysis.R script processes the "Human Activity Recognition Using Smartphones" dataset, combining its multiple files into a single, tidy dataset. The output of the script is a tidy R data frame.
