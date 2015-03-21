@@ -80,6 +80,7 @@ The original dataset contains separate "Test" and "Training" sets, which I have 
 |BodyBody Gyroscope Jerk Magnitude Frequency Standard Deviation     | fBodyBodyGyroJerkMag-std()    | Numeric
 
 The process for creating the final, tidy dataset is as follows:
+
 1. Load the Features file (features.txt), which contains the field names for the 561 fields in the raw datasets.
 2. Load the Training (X_train.txt) and Test (X_test.txt) files which contain the actual recorded measurements for each feature in the Features file.
 3. Combine the Training and Test data into a single dataset. This will be the primary dataset manipulated by the rest of the steps below.
